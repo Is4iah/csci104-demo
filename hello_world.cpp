@@ -1,6 +1,8 @@
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Fight on Isaiah!" << std::endl;
+    cout << " Whatever the heck is today! " << endl;
 }
