@@ -79,7 +79,7 @@ int main() {
 
     Node* tempVal2;
     tempVal2->value = 2; 
-    tempVal->next = tempVal3;
+    tempVal2->next = tempVal3;
 
     Node* tempVal;
     tempVal->value = 1;
