@@ -24,7 +24,7 @@ struct Warrior
 
 std::string getDuelResult(Warrior *invader, Warrior *protector)
 {
-    if (protector->weapon == weapon_axe && invader->weapon == weapon_sword);
+    if (protector->weapon == weapon_axe && invader->weapon == weapon_sword)
     {
         // axes beat swords
         return result_protector;

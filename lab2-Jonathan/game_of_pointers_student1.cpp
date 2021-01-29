@@ -24,11 +24,11 @@ struct Warrior
 
 std::string getDuelResult(Warrior *invader, Warrior *protector)
 {
-    if (protector->weapon == weapon_axe && invader->weapon == weapon_sword);
-    {
-        // axes beat swords
-        return result_protector;
-    }
+   if (protector->weapon == weapon_axe && invader->weapon == weapon_sword)
+   {
+       // axes beat swords
+       return result_protector;
+   }
 	if (invader->weapon == weapon_axe && protector->weapon == weapon_sword)
 	{
 		// axes beat swords
@@ -59,7 +59,7 @@ Warrior **findOpenInvaderPos(Warrior ***invaders, int numRows, int numCols)
 {
 	for (int rowIdx = 0; rowIdx < numRows; ++rowIdx)
 	{
-		for (int colIdx = 0; colIdx < numCols;)
+		for (int colIdx = 0; colIdx < numCols; ++colIdx)
 		{
 			if (invaders[rowIdx][colIdx] == nullptr)
 			{
@@ -246,7 +246,7 @@ int main(int argc, char *argv[])
 
 		for (int invaderCol = 0; invaderCol < rows; ++invaderCol)
 		{
-			invaders[invaderRow][invaderRow] = new Warrior();
+			invaders[invaderRow][invaderCol] = new Warrior();
 
 			// The power of each invader is i*10+(j+1)*10, where i is the row index and j is the column index
 			invaders[invaderRow][invaderCol]->power = invaderRow * 10 + (invaderCol + 1) * 10;
