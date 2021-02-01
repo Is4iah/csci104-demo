@@ -239,14 +239,14 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	// create "invaders"
+	// create "invaders" 
 	for (int invaderRow = 0; invaderRow < cols; ++invaderRow)
 	{
 		invaders[invaderRow] = new Warrior *[rows];
 
 		for (int invaderCol = 0; invaderCol < rows; ++invaderCol)
 		{
-			invaders[invaderRow][invaderRow] = new Warrior();
+			invaders[invaderRow][invaderCol] = new Warrior();
 
 			// The power of each invader is i*10+(j+1)*10, where i is the row index and j is the column index
 			invaders[invaderRow][invaderCol]->power = invaderRow * 10 + (invaderCol + 1) * 10;
