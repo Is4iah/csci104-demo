@@ -5,26 +5,22 @@
 using namespace std;
 
 main() {
-	Node* node1 = new Node;
-	node1->value = 4;
-	node1->next = NULL;
+	Node* node1 = new Node(4,NULL);
 	
-	Node* node2 = new Node;
-	node1->value = 3;
-	node1->next = node1;
+	Node* node2 = new Node(3,node1);
 
-	Node* node3 = new Node;
+	/*Node* node3 = new Node;
 	node1->value = 2;
 	node1->next = node2;
 
 	Node* node4 = new Node;
 	node1->value = 1;
-	node1->next = node3;
+	node1->next = node3;*/
 
-	Node* evens = NULL;
-	Node* odds = NULL;
+	Node* evens = new Node(0,NULL);
+	Node* odds = new Node(0,NULL);
 
-	split(node4, odds, evens);
+	split(node2, odds, evens);
 	
 	cout << "Odds: " << endl;
 

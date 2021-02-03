@@ -1,5 +1,6 @@
 #include <cstddef>
 #include <stdexcept>
+#include <cstddef>
 #include "ulliststr.h"
 
 ULListStr::ULListStr()
@@ -31,6 +32,27 @@ void ULListStr::set(size_t loc, const std::string& val)
     throw std::invalid_argument("Bad location");
   }
   *ptr = val;
+}
+
+void ULListStr::push_back(const std::string& val) {
+    if (head == NULL) {
+        head = new Item();
+    }
+    else {
+        Item* scroll = head;
+        while (scroll->next != NULL) {
+            scroll = scroll->next;
+        }
+        tail = scroll;
+        if (scroll->last == ARRSIZE) {
+            tail = new Item();
+
+        }
+        else {
+
+        }
+    }
+
 }
 
 std::string& ULListStr::get(size_t loc)
