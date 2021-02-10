@@ -8,7 +8,7 @@ Battle::Battle(Pokemon* a, Pokemon* b) : playerA(a), playerB(b) {
     playerAturn = (bool)(std::rand() % 2);
 
     std::cout << "    ,                           .::." << std::endl;
-    std::cout << "                              .;:**'            AMC" << std::endl;
+    std::cout << "               HELLO               .;:**'            AMC" << std::endl;
     std::cout << "                              `                  0" << std::endl;
     std::cout << "  .:XHHHHk.              db.   .;;.     dH  MX   0" << std::endl;
     std::cout << "oMMMMMMMMMMM       ~MM  dMMP :MMMMMR   MMM  MR      ~MRMN" << std::endl;
