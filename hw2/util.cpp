@@ -17,20 +17,42 @@ std::string convToLower(std::string src)
 std::set<std::string> parseStringToWords(string rawWords)
 {
     rawWords = convToLower(rawWords);
+    rawWords = trim(rawWords);
     //split every word greater than 2 char into its own string
 
     //first CREATE A SET
 
-    set< string> keyWords; //this will hold the set of words whos length is >= 2;
+    // ALL POSSIBLE PUNCTUATIONS
+    char space = ' ', p = '.', apos = '\'', comm = ',', simiC = ';', col = ':'; 
 
+    set< char > stops;
+
+    stops.insert(space);
+    stops.insert(p);
+    stops.insert(apos);
+    stops.insert(comm);
+    stops.insert(simiC);
+    stops.insert(col);
+
+
+    // cout << stops.find(' ') << endl << endl;
+
+    // if (stops.find(' ') != stops.end()) {
+    //     cout << "it was found " << endl;
+    // }
+
+
+    set< string > keyWords; //this will hold the set of words whos length is >= 2;
     size_t i = 0; //keep track of iterations
 
-    while (!rawWords.empty() ){
-        char space = ' ';
-        char p = '.';
+    while ( !rawWords.empty() ){
+        rawWords = ltrim(rawWords); //CALLING TRIM ONLY ON LEFT SIDE
+        // char space = ' ', p = '.', apos = '\'', comm = ',', simiC = ';', col = ','; 
+
         // cout << "iteration "<< i << " and char count is " << i << endl;
 
-        if(rawWords.at(i) == space || rawWords.at(i) == p) {
+        if(rawWords.at(i) == space || rawWords.at(i) == p || rawWords.at(i) == apos || rawWords.at(i) == comm || rawWords.at(i) == simiC || rawWords.at(i) == col) {
+        // if (stops.find( rawWords.at(i) ) != stops.end() ) { 
             if (i >= 2) {
                 // cout << "count = " << cnt << endl;
                 // cout << "int = " << i;
@@ -47,41 +69,32 @@ std::set<std::string> parseStringToWords(string rawWords)
                 i = 0;
                 continue;
             }   
-            else { // word is smaller than 2 char
+            else {                                                      // word is smaller than 2 char
                 rawWords = rawWords.substr(i + 1, rawWords.size() - 1);
                 i = 0;
             }
         }
-        if (i == rawWords.size() - 1) { //if this happens we know we are done!!!
-            string temp = rawWords.substr(0, i + 1);
-            // cout << "our key is \"" << temp << "\"" << endl;
-            keyWords.insert(temp);
-            break;
+        if (i == rawWords.size() - 1) {                                 //if this happens we know we are at the last step!!!
+            if (i + 1 >= 2) {                                               //if the final word has at least 2 char we add it to the map
+                string temp = rawWords.substr(0, i + 1);
+                // cout << "our key is \"" << temp << "\"" << endl;
+                keyWords.insert(temp);
+                break;
+            }
+            else { break; }                                             //else we just break
         }
         i++;
     }
     set<string>::iterator itr;
-    cout << "the set begins: " << endl;
+    cout << "Our Keywords are: ";
     for(itr = keyWords.begin(); itr != keyWords.end(); itr++) {
         cout << *itr << " ";
     }
-    cout << "\nthe set ends" << endl;
     
-    
-
 
     // cout << rawWords.size() << endl;
 
-    
-
-
-
-
     return keyWords;
-
-
-
-
 
 }
 
@@ -116,10 +129,87 @@ std::string &trim(std::string &s) {
 
 int main() {
     
-    string rawWords = "hello my name is Mr. isaiah";
-    parseStringToWords(rawWords);
+    string rawWords = "    isaiah       is        super    cool     and        whats         up             ";
+    
+    
+    set<string> Keywords = parseStringToWords(rawWords);
+
+    set<string> search;
+
+    search.insert("isaiah");
+    search.insert("up");
+
+    // set<string> results = set_intersection<string>(Keywords, search);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // for( size_t i = 0; i < rawWords.size(); i++) {
 //         char space = ' ';
