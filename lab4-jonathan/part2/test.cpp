@@ -40,13 +40,40 @@ TEST_F(ArrayListTest, GetNominal) {
 }
 
 TEST_F(ArrayListTest, AddNominal) {
-	// ...
+	// Checks for increase in size
+	for (int i = 3; i < 7; i++)  {
+		list.add(i);
+		EXPECT_EQ(i + 1, list.size());
+	}
+
+	// Checks for correct storage in index
+	for (int i = 0; i < 7; i++) {
+		EXPECT_EQ(i + 1 , list.get(i));
+	}
 }
 
 TEST_F(ArrayListTest, RemoveNominal) {
-	// ...
+	// Check if the element has been deleted
+	list.remove(1);
+	EXPECT_EQ(2, list.get(1));
+
+	// Check if the size has been decremented
+	EXPECT_EQ(2, list.size());
 }
 
 TEST_F(ArrayListTest, SetOffNominal) {
-	// ...
+	// Check if it replaces the value in correct index
+	list.set(2,10);
+	EXPECT_EQ(10, list.get(2));
+
+	for (int i = 0; i < list.size(); i++) {
+		list.set(i,i);
+	}
+	
+	// Check that it does not do anything when the value is invalid
+	list.set(-2,10);
+	
+	for (int i = 0; i < list.size(); i++) {
+		EXPECT_EQ(i, list.get(i));
+	}
 }
