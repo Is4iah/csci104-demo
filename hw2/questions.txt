@@ -1,0 +1,9 @@
+how do I test my book.cpp book.h , clothing/ movie files to make sure they are working properly
+after i finish implementing my abstract classes
+
+how do create keywords function?? just call parse string to words?
+	- i was told to use parseStringToWords from anywhere...how do i do that?
+	- Is my keywords implemented correctly?
+
+Unions working correctly?
+	- implemented correctly?

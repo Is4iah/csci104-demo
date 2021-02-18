@@ -18,11 +18,7 @@ std::set<std::string> parseStringToWords(string rawWords)
 {
     rawWords = convToLower(rawWords);
     rawWords = trim(rawWords);
-    //split every word greater than 2 char into its own string
 
-    //first CREATE A SET
-
-    // ALL POSSIBLE PUNCTUATIONS
     char space = ' ', p = '.', apos = '\'', comm = ',', simiC = ';', col = ':'; 
 
     set< char > stops;
@@ -35,37 +31,24 @@ std::set<std::string> parseStringToWords(string rawWords)
     stops.insert(col);
 
 
-    // cout << stops.find(' ') << endl << endl;
+    set< string > keyWords; 
+    size_t i = 0; 
 
-    // if (stops.find(' ') != stops.end()) {
-    //     cout << "it was found " << endl;
-    // }
-
-
-    set< string > keyWords; //this will hold the set of words whos length is >= 2;
-    size_t i = 0; //keep track of iterations
-
-    while ( !rawWords.empty() ){
+    while ( !rawWords.empty() )
+    {
         rawWords = ltrim(rawWords); //CALLING TRIM ONLY ON LEFT SIDE
-        // char space = ' ', p = '.', apos = '\'', comm = ',', simiC = ';', col = ','; 
-
-        // cout << "iteration "<< i << " and char count is " << i << endl;
+        char space = ' ', p = '.', apos = '\'', comm = ',', simiC = ';', col = ','; 
 
         if(rawWords.at(i) == space || rawWords.at(i) == p || rawWords.at(i) == apos || rawWords.at(i) == comm || rawWords.at(i) == simiC || rawWords.at(i) == col) {
         // if (stops.find( rawWords.at(i) ) != stops.end() ) { 
             if (i >= 2) {
-                // cout << "count = " << cnt << endl;
+/*                 // cout << "count = " << cnt << endl;
                 // cout << "int = " << i;
                 // cout << rawWords[i - cnt] << " - ";
-                // cout << rawWords[i - 1] << endl;
-                string temp = rawWords.substr(0, i);
-                // cout << "our key is \"" << temp << "\"" << endl;
+                // cout << rawWords[i - 1] << endl; */
+                string temp = rawWords.substr(0, i); 
                 keyWords.insert(temp);
-
-                //create new string
-
                 rawWords = rawWords.substr(i + 1, rawWords.size() - 1);
-                // cout << "our new string is \"" << rawWords << "\"" << endl;
                 i = 0;
                 continue;
             }   
@@ -85,15 +68,15 @@ std::set<std::string> parseStringToWords(string rawWords)
         }
         i++;
     }
-    set<string>::iterator itr;
-    cout << "Our Keywords are: ";
-    for(itr = keyWords.begin(); itr != keyWords.end(); itr++) {
-        cout << *itr << " ";
-    }
+/*     // set<string>::iterator itr;
+    // cout << "Our Keywords are: ";
+    // for(itr = keyWords.begin(); itr != keyWords.end(); itr++) {
+    //     cout << *itr << " ";
+    // }
     
 
     // cout << rawWords.size() << endl;
-
+ */
     return keyWords;
 
 }
@@ -127,21 +110,91 @@ std::string &trim(std::string &s) {
     return ltrim(rtrim(s));
 }
 
-int main() {
+// int main() {
     
-    string rawWords = "    isaiah       is        super    cool     and        whats         up             ";
+//     set<string>::iterator itr;
+//     set<string>::iterator i;
+//     string rawWords1 = "The Life of Pie";
+//     string rawWords2 = "I like pie";
+//     set<string> search,
+//                 results,
+//                 keyWords1 = parseStringToWords(rawWords1),
+//                 keyWords2 = parseStringToWords(rawWords2);
+
+
+//     search.insert("Life");
+//     search.insert("pie");
+
+//     for(i = keyWords1.begin(); i != keyWords1.end(); i++) {
+//         all.insert( *i, x );
+//     }
+
+//     for(i = keyWords2.begin(); i != keyWords2.end(); i++) {
+//         all.insert( *i, y );
+//     }
+
+//     for(i = all.begin(); i != all.end(); i++) {
+//         cout << (*i) << " ";
+//     }
+//     cout << endl;
+
+
+
+// //test all words
+//    for(i = keyWords1.begin(); i != keyWords1.end(); i++) {
+//         all.insert( *i );
+//     }
+
+//     for(i = keyWords2.begin(); i != keyWords2.end(); i++) {
+//         all.insert( *i );
+//     }
+
+//     //output our whole list of keywords
+//     cout << "all of out keywords are: ";
+//     for(i = all.begin(); i != all.end(); i++) {
+//         cout << (*i) << " ";
+//     }
+//     cout << endl;
+
+// //
+
+
+// /* //TEST Intersection
+//     results = setIntersection<string>(search, keyWords); */
+
+// /* //TEST Union
+//     results = setUnion<string>(search, keyWords);
+//     //return a  */
+
+
+// /* //Checks for HITS: 
+//     if (results.size()) {
+//         cout << "we have some hits" << endl;
+//     }
+//     else { cout << "NO HITS" << endl;} */
     
-    
-    set<string> Keywords = parseStringToWords(rawWords);
+// /* //Displays keyWords
+//     cout << "Our Keywords are: ";
+//     for(itr = keyWords.begin(); itr != keyWords.end(); itr++) {
+//         cout << *itr << " ";
+//     }
+//     cout << endl; */
 
-    set<string> search;
+// /* //Displays search words   
+//     cout << "Our Search is : AND ";
+//     for(itr = search.begin(); itr != search.end(); itr++) {
+//         cout << *itr << " ";
+//     }
+//     cout << endl; */
 
-    search.insert("isaiah");
-    search.insert("up");
+// /* //Displays HITS
+//     cout << "HITS : ";
+//     for(itr = results.begin(); itr != results.end(); itr++) {
+//         cout << *itr << " ";
+//     } */
 
-    // set<string> results = set_intersection<string>(Keywords, search);
 
-}
+// }
 
 
 
@@ -255,3 +308,8 @@ int main() {
 //         //     }
 //         // }
 //     }
+
+
+
+
+

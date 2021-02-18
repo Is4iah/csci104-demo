@@ -41,8 +41,16 @@ public:
      * Reproduce the database file from the current Products and User values
      */
     virtual void dump(std::ostream& ofile) = 0;
+    
+/*     //vector of product and users
 
-
+    //extra functions for the cart
+    // map of string user to their cart (vector of products)
+    // create a map of user names to the user
+    // pair(string, set<products>) */
 };
 
 #endif
+
+
+//do an intersection of two, then intersection of the intersection and the next product, and the next, and same thing for the next

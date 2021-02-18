@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 #include "product.h"
+#include <fstream>
+
+using namespace std;
 
 class ProductParser
 {
@@ -11,7 +14,7 @@ public:
 
     virtual ~ProductParser();
 
-    /**
+    /*
      * Parses product info from the given input stream
      */
     Product* parse(std::string category,

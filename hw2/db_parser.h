@@ -104,7 +104,5 @@ protected:
         std::string& errorMsg);
 private:
 
-    unsigned int numRead_ ;
-
 };
 #endif

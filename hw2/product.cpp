@@ -20,7 +20,6 @@ Product::~Product()
 
 }
 
-
 double Product::getPrice() const
 {
     return price_;
@@ -58,13 +57,13 @@ void Product::dump(std::ostream& os) const
 
 
 
-// Product::Product(const std::string category, const std::string name, double price, int qty) :
+/* // Product::Product(const std::string category, const std::string name, double price, int qty) :
 
 int main () {
     string cat = "book";
     string name = "isaiah's book";
     double price = 4.20;
     int qty = 69;
-    Product* test = new Product(cat, name, price, qty);
+    Product test (cat, name, price, qty);
     // cout << test->getName() << endl;
-}
+} */
