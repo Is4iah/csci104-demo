@@ -4,22 +4,20 @@
 
 using namespace std;
 
-class Book : public Product {
+class Movie : public Product {
 public: 
-	Book();
-	~Book();
-	Book(const std::string category_,
+	Movie();
+	~Movie();
+	Movie(const std::string category_,
 	     const std::string name_, 
 		 double price_, int qty_, 
-		 string author_, string ISBN_);
+		 string genre_, string rating_);
 	
-	string getAuthor();
-	string getISBN();
+	string getGenre();
+	string getRating();
 
 private:
-	string author_;
-	string ISBN_;
+	string genre_;
+	string rating_;
 };
-
-
 
